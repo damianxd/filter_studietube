@@ -35,7 +35,7 @@ class filter_studietube extends moodle_text_filter
      */
     public function filter($text, array $options = array()) {
         if (!is_string($text) || empty($text) || 
-           (!$successmatch = preg_match_all("/<img(?:.+?)class=\"studietube\"(?:.+?)alt=\"([A-Za-z0-9]+)\"/s", $text, $matches))) {
+           (!$successmatch = preg_match_all("/<img(?:.+?)class=\"studietube\"(?:.+?)(?:alt|id)=\"([A-Za-z0-9]+)\"/s", $text, $matches))) {
             return $text;
         }
 
@@ -48,7 +48,7 @@ class filter_studietube extends moodle_text_filter
                continue; 
             }
 
-            $text = preg_replace('/<img(?:.+?)class="studietube"(?:.+?)alt="'.$vkey.'"(?:.+?)>/s', '<p style="width:100%;height:0;position:relative;padding-bottom:56.25%;"><iframe src="\/\/www.studietube.dk\/e\/'.$vkey.'\/0?nopanel=tru" style="width:100%;height:100%;position:absolute;top:0;left:0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" allow="encrypted-media"></iframe></p>', $text);
+            $text = preg_replace('/<img(?:.+?)class="studietube"(?:.+?)(?:alt|id)="'.$vkey.'"(?:.+?)>/s', '<p style="width:100%;height:0;position:relative;padding-bottom:56.25%;"><iframe src="\/\/www.studietube.dk\/e\/'.$vkey.'\/0?nopanel=tru" style="width:100%;height:100%;position:absolute;top:0;left:0;" allowfullscreen webkitallowfullscreen mozAllowFullScreen frameborder="0" allow="encrypted-media"></iframe></p>', $text);
         }
         
         return $text;
