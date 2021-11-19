@@ -24,8 +24,8 @@
 defined('MOODLE_INTERNAL') || die();
 $plugin            = new StdClass();
 $plugin->component = 'filter_studietube';
-$plugin->version   = 2021100800;
+$plugin->version   = 2021111900;
 $plugin->requires  = 2014051200;
-$plugin->dependencies = array('atto_studietube' => 2020102700);
-$plugin->release   = '1.0.3';
+$plugin->dependencies = array('atto_studietube' => 2021111900);
+$plugin->release   = '2.0.0';
 $plugin->maturity  = MATURITY_STABLE;
